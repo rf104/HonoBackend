@@ -1,11 +1,22 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { products } from './data/products.js'
 
 const app = new Hono()
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
+
+
+app.get('/products', (c) => {
+  return c.json(products)
+})
+
+
+
+
+
 
 app.get('/JSON', (c) =>{
   return c.json({message : 'HelloHono'});
